@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://caod2vdu222qa"]
+
+[ext_resource type="Script" path="res://bullet.gd" id="1_v1vax"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_apx3k"]
+
+[node name="Area3D" type="Area3D"]
+script = ExtResource("1_v1vax")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+shape = SubResource("BoxShape3D_apx3k")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+size = Vector3(0.1, 0.1, 0.1)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

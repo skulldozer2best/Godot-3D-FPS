@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://c4landsr5wb23"]
+
+[ext_resource type="PackedScene" uid="uid://blpma35mymuql" path="res://player.tscn" id="1_vodg7"]
+[ext_resource type="PackedScene" uid="uid://bg6kr604hjnur" path="res://enemy.tscn" id="2_cotgm"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dbtae"]
+size = Vector3(5.84756, 0.975342, 17.2314)
+
+[node name="World" type="Node3D"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.926804, 0, -1.03098)
+size = Vector3(5.634, 1, 16.7829)
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.68605, 0.0123291, -1.06889)
+shape = SubResource("BoxShape3D_dbtae")
+
+[node name="Player" parent="." groups=["player"] instance=ExtResource("1_vodg7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.08278, 3.14796)
+
+[node name="Enemy" parent="." instance=ExtResource("2_cotgm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.554856, 0.77699, 0.985403)

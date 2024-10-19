@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://bg6kr604hjnur"]
+
+[ext_resource type="PackedScene" uid="uid://cn72r7dki2c8v" path="res://zombo.fbx" id="1_4yhd4"]
+[ext_resource type="Script" path="res://enemy.gd" id="1_8kl62"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_t7hi2"]
+radius = 0.179787
+height = 0.99744
+
+[node name="Enemy" type="CharacterBody3D"]
+script = ExtResource("1_8kl62")
+
+[node name="zombo" parent="." instance=ExtResource("1_4yhd4")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -0.117833, 0, 0.0257345)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.041545, 0.345818, 0.163189)
+shape = SubResource("CapsuleShape3D_t7hi2")
